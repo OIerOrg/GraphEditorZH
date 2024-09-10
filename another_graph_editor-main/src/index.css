@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Jetbrains Mono;
+    font-weight: 700;
+    src: url(/JetBrainsMono-Bold.ttf);
+  }
+  @font-face {
+    font-family: Jetbrains Mono;
+    font-weight: 600;
+    src: url(/JetBrainsMono-SemiBold.ttf);
+  }
+  @font-face {
+    font-family: Jetbrains Mono;
+    font-weight: 400;
+    src: url(/JetBrainsMono-Regular.ttf);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
