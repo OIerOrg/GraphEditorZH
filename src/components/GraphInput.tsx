@@ -181,7 +181,7 @@ export function GraphInput({
             <span>
               {inputFormat === "edges" ? (
                 <span className="text-selected p-0 hover:cursor-pointer">
-                  边
+                  边模式
                 </span>
               ) : (
                 <span
