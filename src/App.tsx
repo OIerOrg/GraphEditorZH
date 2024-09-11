@@ -103,7 +103,7 @@ function App() {
               alt="Github Logo"
             />
           )}
-          <div className="ml-2">Github</div>
+          <div className="ml-2">Github (英文版)</div>
         </a>
 
         <GraphInput
