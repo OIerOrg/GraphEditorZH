@@ -96,7 +96,7 @@ function App() {
           className="font-jetbrains text-sm flex sm:top-2 lg:top-2 absolute border-2 border-border rounded-lg px-2 py-1
             justify-between items-center hover:border-border-hover z-10"
           href="https://anacc22.github.io/another_graph_editor/"
-          style={{ right: '18%' }}  // 稍微偏左
+          style={{ right: '19.5%' }}  // 稍微偏左
         >
           {settings.darkMode ? (
             <img width={18} src="github-mark/github-mark-white.svg" alt="Github Logo" />
