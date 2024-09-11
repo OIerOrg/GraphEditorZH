@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 import { InputFormat, ParsedGraph } from "../types";
 import { Graph } from "../types";
-import { sortNodes } from "./utils";
 
 interface Props {
   graphEdges: Graph;
