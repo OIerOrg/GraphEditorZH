@@ -1,7 +1,23 @@
-import { useReducer } from "react";
+import { useState, useEffect, useReducer } from "react"; // 添加 useEffect
+import { GraphInput } from "./components/GraphInput"; // 确保正确导入 GraphInput
+import { GraphCanvas } from "./components/GraphCanvas";
+import { GraphSettings } from "./components/GraphSettings";
+import { InputFormat, Settings, Graph } from "./types"; // 确保正确导入类型
 
-// 定义 Graph 的初始状态
-const initialGraph = {
+// 定义 GraphReducer 的 action 类型
+interface GraphAction {
+  type: string;
+  payload: Graph;
+}
+
+// 定义 SettingsReducer 的 action 类型
+interface SettingsAction {
+  type: string;
+  setting: keyof Settings;
+  value: any; // 根据 setting 的不同，value 可以是 number, string, boolean 等
+}
+
+const initialGraph: Graph = {
   nodes: new Array<string>(),
   adj: new Map<string, string[]>(),
   rev: new Map<string, string[]>(),
@@ -10,8 +26,8 @@ const initialGraph = {
   nodeLabels: new Map<string, string>(),
 };
 
-// 定义一个 GraphReducer
-function graphReducer(state, action) {
+// 定义 GraphReducer
+function graphReducer(state: { graphEdges: Graph; graphParChild: Graph }, action: GraphAction) {
   switch (action.type) {
     case "UPDATE_GRAPH_EDGES":
       return { ...state, graphEdges: action.payload };
@@ -22,8 +38,7 @@ function graphReducer(state, action) {
   }
 }
 
-// 定义 Settings 的初始状态
-const initialSettings = {
+const initialSettings: Settings = {
   labelOffset: 0,
   darkMode:
     localStorage.getItem("darkMode") !== null
@@ -48,7 +63,7 @@ const initialSettings = {
 };
 
 // 定义 SettingsReducer
-function settingsReducer(state, action) {
+function settingsReducer(state: Settings, action: SettingsAction) {
   switch (action.type) {
     case "UPDATE_SETTING":
       return { ...state, [action.setting]: action.value };
@@ -69,18 +84,18 @@ function App() {
     initialSettings
   );
 
-  // 更新 graphEdges 的函数
-  const updateGraphEdges = (newEdges) => {
+  // 更新 graphEdges 的函数，指定参数类型
+  const updateGraphEdges = (newEdges: Graph) => {
     dispatchGraph({ type: "UPDATE_GRAPH_EDGES", payload: newEdges });
   };
 
-  // 更新 graphParChild 的函数
-  const updateGraphParChild = (newGraph) => {
+  // 更新 graphParChild 的函数，指定参数类型
+  const updateGraphParChild = (newGraph: Graph) => {
     dispatchGraph({ type: "UPDATE_GRAPH_PAR_CHILD", payload: newGraph });
   };
 
-  // 更新设置的函数
-  const updateSetting = (setting, value) => {
+  // 更新设置的函数，指定参数类型
+  const updateSetting = (setting: keyof Settings, value: any) => {
     dispatchSettings({ type: "UPDATE_SETTING", setting, value });
   };
 
