@@ -167,7 +167,6 @@ export function GraphInput({
               ? sortNodes(graphEdges.nodes).join(" ")
               : sortNodes(graphParChild.nodes).join(" ")
           }
-          readOnly
           className="bg-ovr font-semibold font-jetbrains resize-none border-2
             rounded-md px-2 py-1 border-single focus:outline-none text-lg
             text-current-nodes border-border w-auto no-scrollbar"
