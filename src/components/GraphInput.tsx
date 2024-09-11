@@ -1,10 +1,6 @@
-import { parseGraphInputEdges } from "./parseGraphInput";
-import { parseGraphInputParentChild } from "./parseGraphInput";
+import { parseGraphInputEdges, parseGraphInputParentChild } from "./parseGraphInput";
 import { useEffect, useState } from "react";
-
-import { InputFormat, ParsedGraph } from "../types";
-import { Graph } from "../types";
-import { sortNodes } from "./utils";
+import { InputFormat, ParsedGraph, Graph } from "../types";  // 确保正确导入
 
 interface Props {
   graphEdges: Graph;
@@ -31,31 +27,20 @@ export function GraphInput({
 
   const processGraphInput = () => {
     let parsedGraph: ParsedGraph;
-
     let roots = "";
 
     if (!directed) {
       roots =
         inputFormat === "edges"
-          ? (
-              document.getElementById(
-                "graphInputRootsEdges",
-              ) as HTMLTextAreaElement
-            ).value
-          : (
-              document.getElementById(
-                "graphInputRootsParChild",
-              ) as HTMLTextAreaElement
-            ).value;
+          ? (document.getElementById("graphInputRootsEdges") as HTMLTextAreaElement).value
+          : (document.getElementById("graphInputRootsParChild") as HTMLTextAreaElement).value;
     }
 
     if (inputFormat === "edges") {
       parsedGraph = parseGraphInputEdges(
         roots,
-        (document.getElementById("graphInputEdges") as HTMLTextAreaElement)
-          .value,
-        (document.getElementById("graphInputNodeLabels") as HTMLTextAreaElement)
-          .value,
+        (document.getElementById("graphInputEdges") as HTMLTextAreaElement).value,
+        (document.getElementById("graphInputNodeLabels") as HTMLTextAreaElement).value
       );
       if (parsedGraph.status === "BAD") {
         setInputStatus(false);
@@ -66,14 +51,10 @@ export function GraphInput({
     } else {
       parsedGraph = parseGraphInputParentChild(
         roots,
-        (document.getElementById("graphInputParent") as HTMLTextAreaElement)
-          .value,
-        (document.getElementById("graphInputChild") as HTMLTextAreaElement)
-          .value,
-        (document.getElementById("graphInputEdgeLabels") as HTMLTextAreaElement)
-          .value,
-        (document.getElementById("graphInputNodeLabels") as HTMLTextAreaElement)
-          .value,
+        (document.getElementById("graphInputParent") as HTMLTextAreaElement).value,
+        (document.getElementById("graphInputChild") as HTMLTextAreaElement).value,
+        (document.getElementById("graphInputEdgeLabels") as HTMLTextAreaElement).value,
+        (document.getElementById("graphInputNodeLabels") as HTMLTextAreaElement).value
       );
       if (parsedGraph.status === "BAD") {
         setInputStatus(false);
@@ -85,16 +66,12 @@ export function GraphInput({
   };
 
   const processNodeLabels = () => {
-    const currentNodes = (
-      document.getElementById("graphInputCurrentNodes") as HTMLTextAreaElement
-    ).value
+    const currentNodes = (document.getElementById("graphInputCurrentNodes") as HTMLTextAreaElement).value
       .trim()
       .split(/\s+/)
       .filter((u) => u.length);
 
-    const nodeLabels = (
-      document.getElementById("graphInputNodeLabels") as HTMLTextAreaElement
-    ).value
+    const nodeLabels = (document.getElementById("graphInputNodeLabels") as HTMLTextAreaElement).value
       .trim()
       .split(/\s+/)
       .filter((u) => u.length);
@@ -116,9 +93,7 @@ export function GraphInput({
     }
   };
 
-  const handleTextAreaKeyDown = (
-    e: React.KeyboardEvent<HTMLTextAreaElement>,
-  ) => {
+  const handleTextAreaKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Escape") {
       e.currentTarget.blur();
     }
@@ -155,7 +130,7 @@ export function GraphInput({
           }
           readOnly
           className="bg-ovr font-semibold font-jetbrains resize-none border-2
-            rounded-md px-2 py-1 border-single focus:outline-none text-lg
+            rounded-md px-2 py-1 border-border focus:outline-none text-lg
             text-current-nodes border-border w-auto no-scrollbar"
         ></textarea>
 
@@ -169,7 +144,7 @@ export function GraphInput({
           onKeyDown={handleTextAreaKeyDown}
           placeholder="提示：'_' 代表空白标签"
           className="bg-ovr font-semibold font-jetbrains resize-none border-2
-            rounded-md px-2 py-1 border-single focus:outline-none text-lg
+            rounded-md px-2 py-1 border-border focus:outline-none text-lg
             border-border focus:border-border-active placeholder-placeholder
             placeholder:italic w-auto no-scrollbar"
         ></textarea>
@@ -244,46 +219,36 @@ export function GraphInput({
           </label>
         </div>
 
+        <br />
+
         <div className="flex font-light text-sm justify-between">
           <span>
             <span>
-              {!directed ? (
+              {directed ? (
                 <span className="text-selected p-0 hover:cursor-pointer">
-                  无向边
+                  有向图
                 </span>
               ) : (
                 <span
                   className="p-0 hover:cursor-pointer"
-                  onClick={() => {
-                    setDirected(false);
-                    let checkbox = document.getElementById(
-                      "directedCheckbox",
-                    ) as HTMLInputElement;
-                    checkbox.checked = false;
-                  }}
+                  onClick={() => setDirected(true)}
                 >
-                  无向边
+                  有向图
                 </span>
               )}
             </span>
             <span> | </span>
             <span>
-              {directed ? (
+              {!directed ? (
                 <span className="text-selected p-0 hover:cursor-pointer">
-                  有向边
+                  无向图
                 </span>
               ) : (
                 <span
                   className="p-0 hover:cursor-pointer"
-                  onClick={() => {
-                    setDirected(true);
-                    let checkbox = document.getElementById(
-                      "directedCheckbox",
-                    ) as HTMLInputElement;
-                    checkbox.checked = true;
-                  }}
+                  onClick={() => setDirected(false)}
                 >
-                  有向边
+                  无向图
                 </span>
               )}
             </span>
