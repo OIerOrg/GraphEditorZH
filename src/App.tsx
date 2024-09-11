@@ -52,97 +52,99 @@ function App() {
     treeMode: false,
     lockMode: false,
   });
-
-  return (
-    <>
-      <div
-        className={
-          settings.darkMode
-            ? "dark bg-ovr text-text absolute w-full min-h-200 overflow-scroll"
-            : "light bg-ovr text-text absolute w-full min-h-200 overflow-scroll"
-        }
+return (
+  <>
+    <div
+      className={
+        settings.darkMode
+          ? "dark bg-ovr text-text absolute w-full min-h-200 overflow-scroll"
+          : "light bg-ovr text-text absolute w-full min-h-200 overflow-scroll"
+      }
+    >
+      {/* Github 左侧链接 */}
+      <a
+        className="font-jetbrains text-sm flex sm:top-2 lg:top-2 sm:left-2
+          lg:left-2 absolute border-2 border-border rounded-lg px-2 py-1
+          justify-between items-center hover:border-border-hover z-10"
+        href="https://github.com/zjx-kimi/GraphEditor"
       >
-        <a
-          className="font-jetbrains text-sm flex sm:top-2 lg:top-2 sm:right-2
-            lg:right-2 absolute border-2 border-border rounded-lg px-2 py-1
-            justify-between items-center hover:border-border-hover z-10"
-          href="https://github.com/zjx-kimi/GraphEditor"
-        >
-          {settings.darkMode ? (
-            <img
-              width={18}
-              src="github-mark/github-mark-white.svg"
-              alt="Github Logo"
-            />
-          ) : (
-            <img
-              width={18}
-              src="github-mark/github-mark.svg"
-              alt="Github Logo"
-            />
-          )}
-          <div className="ml-2">Github</div>
-        </a>
-        
-        <a
-          className="font-jetbrains text-sm flex sm:top-2 lg:top-2 sm:right-50
-            lg:right-2 absolute border-2 border-border rounded-lg px-2 py-1
-            justify-between items-center hover:border-border-hover z-10"
-          href="https://github.com/anAcc22/another_graph_editor"
-        >
-          {settings.darkMode ? (
-            <img
-              width={18}
-              src="github-mark/github-mark-white.svg"
-              alt="Github Logo"
-            />
-          ) : (
-            <img
-              width={18}
-              src="github-mark/github-mark.svg"
-              alt="Github Logo"
-            />
-          )}
-          <div className="ml-2">Github (英文版)</div>
-        </a>
+        {settings.darkMode ? (
+          <img
+            width={18}
+            src="github-mark/github-mark-white.svg"
+            alt="Github Logo"
+          />
+        ) : (
+          <img
+            width={18}
+            src="github-mark/github-mark.svg"
+            alt="Github Logo"
+          />
+        )}
+        <div className="ml-2">Github</div>
+      </a>
 
-        <GraphInput
-          graphEdges={graphEdges}
-          setGraphEdges={setGraphEdges}
-          graphParChild={graphParChild}
-          setGraphParChild={setGraphParChild}
+      {/* Github 右侧链接 */}
+      <a
+        className="font-jetbrains text-sm flex sm:top-2 lg:top-2 sm:right-2
+          lg:right-2 absolute border-2 border-border rounded-lg px-2 py-1
+          justify-between items-center hover:border-border-hover z-10"
+        href="https://github.com/anAcc22/another_graph_editor"
+      >
+        {settings.darkMode ? (
+          <img
+            width={18}
+            src="github-mark/github-mark-white.svg"
+            alt="Github Logo"
+          />
+        ) : (
+          <img
+            width={18}
+            src="github-mark/github-mark.svg"
+            alt="Github Logo"
+          />
+        )}
+        <div className="ml-2">Github (英文版)</div>
+      </a>
+
+      <GraphInput
+        graphEdges={graphEdges}
+        setGraphEdges={setGraphEdges}
+        graphParChild={graphParChild}
+        setGraphParChild={setGraphParChild}
+        inputFormat={inputFormat}
+        setInputFormat={setInputFormat}
+        directed={directed}
+        setDirected={setDirected}
+      />
+
+      <div className="relative z-0">
+        <GraphCanvas
+          graph={graphEdges}
+          inputFormatToRender={"edges"}
           inputFormat={inputFormat}
-          setInputFormat={setInputFormat}
-          directed={directed}
-          setDirected={setDirected}
-        />
-
-        <div className="relative z-0">
-          <GraphCanvas
-            graph={graphEdges}
-            inputFormatToRender={"edges"}
-            inputFormat={inputFormat}
-            directed={directed}
-            settings={settings}
-          />
-
-          <GraphCanvas
-            graph={graphParChild}
-            inputFormatToRender={"parentChild"}
-            inputFormat={inputFormat}
-            directed={directed}
-            settings={settings}
-          />
-        </div>
-
-        <GraphSettings
           directed={directed}
           settings={settings}
-          setSettings={setSettings}
+        />
+
+        <GraphCanvas
+          graph={graphParChild}
+          inputFormatToRender={"parentChild"}
+          inputFormat={inputFormat}
+          directed={directed}
+          settings={settings}
         />
       </div>
-    </>
-  );
+
+      <GraphSettings
+        directed={directed}
+        settings={settings}
+        setSettings={setSettings}
+      />
+    </div>
+  </>
+);
+
 }
 
 export default App;
