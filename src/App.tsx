@@ -46,7 +46,7 @@ function App() {
     edgeLength:
       localStorage.getItem("edgeLength") !== null
         ? Number.parseFloat(localStorage.getItem("edgeLength")!)
-        : 10,
+        : 30,
     showComponents: false,
     showBridges: false,
     treeMode: false,
