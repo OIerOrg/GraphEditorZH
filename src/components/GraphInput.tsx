@@ -476,6 +476,11 @@ export function GraphInput({
                     "graphInputRootsEdges",
                   ) as HTMLTextAreaElement
                 ).value = "";
+                (
+                  document.getElementById(
+                    "graphInputNodeLabels",
+                  ) as HTMLTextAreaElement
+                ).value = "";
               } else {
                 (
                   document.getElementById(
