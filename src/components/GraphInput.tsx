@@ -154,7 +154,6 @@ export function GraphInput({
               : sortNodes(graphParChild.nodes).join(" ")
           }
           readOnly
-          placeholder="readOnly"
           className="bg-ovr font-semibold font-jetbrains resize-none border-2
             rounded-md px-2 py-1 border-single focus:outline-none text-lg
             text-current-nodes border-border w-auto no-scrollbar"
@@ -465,7 +464,7 @@ export function GraphInput({
         <button
             className="bg-clear-normal hover:bg-clear-hover
               active:bg-clear-active inline rounded-md px-2 py-1"
-            onClick={() => 
+            onClick={() => {
               if (inputFormat === "edges") {
                 (
                   document.getElementById(
@@ -475,6 +474,11 @@ export function GraphInput({
                 (
                   document.getElementById(
                     "graphInputRootsEdges",
+                  ) as HTMLTextAreaElement
+                ).value = "";
+                (
+                  document.getElementById(
+                    "graphInputNodeLabels",
                   ) as HTMLTextAreaElement
                 ).value = "";
               } else {
