@@ -55,7 +55,7 @@ Error generating stack: `+o.message+`
                 rounded-full bg-toggle-uncheck border-none transition-all
                 duration-75 hover:bg-toggle-hover peer-checked:bg-toggle-check`}),y.jsx("span",{className:`absolute top-0.5 left-0.5 w-4 h-4 bg-toggle-circle
                 rounded-full transition-all duration-75 cursor-pointer
-                peer-checked:translate-x-4`})]})]}),y.jsx("br",{}),y.jsx("h4",{className:!i&&l==="edges"?"text-base font-semibold":"hidden",children:"根节点"}),y.jsx("textarea",{wrap:"off",name:"graphInputRootsEdges",id:"graphInputRootsEdges",rows:1,onChange:h,onKeyDown:p,className:!i&&l==="edges"?`bg-ovr font-semibold font-jetbrains resize-none border-2
+                peer-checked:translate-x-4`})]})]}),y.jsx("br",{}),y.jsx("h4",{className:!i&&l==="edges"?"text-base font-semibold":"hidden",children:"根节点"}),y.jsx("textarea",{wrap:"off",name:"graphInputRootsEdges",id:"graphInputRootsEdges",rows:1,onChange:h,onKeyDown:p,placeholder:"提示：根节点的编号 (只能有一个)",className:!i&&l==="edges"?`bg-ovr font-semibold font-jetbrains resize-none border-2
                 rounded-md px-2 py-1 border-single focus:outline-none text-lg
                 border-border focus:border-border-active w-auto no-scrollbar`:"hidden"}),y.jsx("h4",{className:!i&&l==="parentChild"?"text-base font-semibold":"hidden",children:"根节点"}),y.jsx("textarea",{wrap:"off",name:"graphInputRootsParChild",id:"graphInputRootsParChild",rows:1,onChange:h,onKeyDown:p,placeholder:"提示：根节点的编号 (只能有一个)",className:!i&&l==="parentChild"?`bg-ovr font-semibold font-jetbrains resize-none border-2
                 rounded-md px-2 py-1 border-single focus:outline-none text-lg
