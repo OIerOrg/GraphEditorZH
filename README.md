@@ -1,5 +1,12 @@
 # 另一个图编辑器
 
+<div align="center">
+
+[English](https://github.com/zjx-kimi/GraphEditorEN) / 简体中文
+
+</div>
+
+
 一个受到 [CS Academy 的图编辑器](https://csacademy.com/app/graph_editor/) 启发的图编辑器，专为竞赛编程设计。
 
 使用 React、Typescript、Tailwind CSS 和 HTML Canvas 制作。
