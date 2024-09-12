@@ -448,6 +448,7 @@ export function GraphInput({
           name="graphInputEdgeLabels"
           id="graphInputEdgeLabels"
           rows={1}
+          defaultValue={"1 2 3 4 5"}
           onChange={processGraphInput}
           onKeyDown={handleTextAreaKeyDown}
           className={
