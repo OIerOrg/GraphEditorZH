@@ -440,7 +440,7 @@ export function GraphInput({
             inputFormat === "parentChild" ? "text-base font-semibold" : "hidden"
           }
         >
-          边标签
+          边标签(边权)
         </h4>
         <textarea
           wrap="off"
