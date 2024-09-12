@@ -471,6 +471,11 @@ export function GraphInput({
                     "graphInputEdges",
                   ) as HTMLTextAreaElement
                 ).value = "";
+                (
+                  document.getElementById(
+                    "graphInputRootsEdges",
+                  ) as HTMLTextAreaElement
+                ).value = "";
               } else {
                 (
                   document.getElementById(
@@ -485,6 +490,11 @@ export function GraphInput({
                 (
                   document.getElementById(
                     "graphInputChild",
+                  ) as HTMLTextAreaElement
+                ).value = "";
+                (
+                  document.getElementById(
+                    "graphInputRootsParChild",
                   ) as HTMLTextAreaElement
                 ).value = "";
               }
