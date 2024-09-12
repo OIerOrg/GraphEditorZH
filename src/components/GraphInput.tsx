@@ -400,6 +400,7 @@ export function GraphInput({
           name="graphInputParent"
           id="graphInputParent"
           rows={1}
+          defaultValue={"4 3 4 2 1"}
           onChange={processGraphInput}
           onKeyDown={handleTextAreaKeyDown}
           className={
@@ -423,7 +424,7 @@ export function GraphInput({
           name="graphInputChild"
           id="graphInputChild"
           rows={1}
-          defaultValue={"1 2 3 4 5 6 7 8 9"}
+          defaultValue={"1 2 3 4 5"}
           onChange={processGraphInput}
           onKeyDown={handleTextAreaKeyDown}
           className={
