@@ -62,7 +62,6 @@ function App() {
             : "light bg-ovr text-text absolute w-full min-h-200 overflow-scroll"
         }
       >
-        {/* Github 最靠右的链接 */}
         <a
           className="font-jetbrains text-sm flex sm:top-2 lg:top-2 absolute border-2 border-border rounded-lg px-2 py-1
             justify-between items-center hover:border-border-hover z-10"
@@ -76,26 +75,11 @@ function App() {
           )}
           <div className="ml-2">Github</div>
         </a>
-
-        {/* Github 稍微偏左的链接 */}
-        <a
-          className="font-jetbrains text-sm flex sm:top-2 lg:top-2 absolute border-2 border-border rounded-lg px-2 py-1
-            justify-between items-center hover:border-border-hover z-10"
-          href="https://github.com/anAcc22/another_graph_editor"
-          style={{ right: '8.5%' }}  // 稍微偏左
-        >
-          {settings.darkMode ? (
-            <img width={18} src="github-mark/github-mark-white.svg" alt="Github Logo" />
-          ) : (
-            <img width={18} src="github-mark/github-mark.svg" alt="Github Logo" />
-          )}
-          <div className="ml-2">Github (英文版)</div>
-        </a>
         
         <a
           className="font-jetbrains text-sm flex sm:top-2 lg:top-2 absolute border-2 border-border rounded-lg px-2 py-1
             justify-between items-center hover:border-border-hover z-10"
-          href="https://anacc22.github.io/another_graph_editor/"
+          href=https://zjx-kimi.github.io/GraphEditorEN/"
           style={{ right: '19.5%' }}  // 稍微偏左
         >
           {settings.darkMode ? (
