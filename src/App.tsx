@@ -87,7 +87,7 @@ function App() {
           ) : (
             <img width={18} src="github-mark/github-mark.svg" alt="Github Logo" />
           )}
-          <div className="ml-2">WebSite (英文版)</div>
+          <div className="ml-2">WebSite (English)</div>
         </a>
         
         <GraphInput
