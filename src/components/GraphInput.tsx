@@ -202,7 +202,7 @@ export function GraphInput({
             <span>
               {inputFormat === "parentChild" ? (
                 <span className="text-selected p-0 hover:cursor-pointer">
-                  父亲 模式
+                  父亲模式
                 </span>
               ) : (
                 <span
@@ -215,7 +215,7 @@ export function GraphInput({
                     checkbox.checked = true;
                   }}
                 >
-                  父亲 模式
+                  父亲模式
                 </span>
               )}
             </span>
@@ -351,6 +351,7 @@ export function GraphInput({
           rows={1}
           onChange={processGraphInput}
           onKeyDown={handleTextAreaKeyDown}
+          placeholder="提示：根节点的编号 (只能有一个)"
           className={
             !directed && inputFormat === "parentChild"
               ? `bg-ovr font-semibold font-jetbrains resize-none border-2
@@ -373,6 +374,7 @@ export function GraphInput({
           id="graphInputEdges"
           onChange={processGraphInput}
           onKeyDown={handleTextAreaKeyDown}
+          placeholder="提示：每行一条边，格式为“起点 终点 边权(可选)”"
           rows={8}
           className={
             inputFormat === "edges"
