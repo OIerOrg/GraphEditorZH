@@ -461,7 +461,7 @@ export function GraphInput({
         ></textarea>
 
         <div className="flex justify-between">
-          <button
+        <button
             className="bg-clear-normal hover:bg-clear-hover
               active:bg-clear-active inline rounded-md px-2 py-1"
             onClick={() => {
@@ -475,6 +475,16 @@ export function GraphInput({
                 (
                   document.getElementById(
                     "graphInputParent",
+                  ) as HTMLTextAreaElement
+                ).value = "";
+                (
+                  document.getElementById(
+                    "graphInputEdgeLabels",
+                  ) as HTMLTextAreaElement
+                ).value = "";
+                (
+                  document.getElementById(
+                    "graphInputChild",
                   ) as HTMLTextAreaElement
                 ).value = "";
               }
