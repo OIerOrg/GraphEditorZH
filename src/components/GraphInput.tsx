@@ -326,6 +326,7 @@ export function GraphInput({
           rows={1}
           onChange={processGraphInput}
           onKeyDown={handleTextAreaKeyDown}
+          placeholder="提示：根节点的编号 (只能有一个)"
           className={
             !directed && inputFormat === "edges"
               ? `bg-ovr font-semibold font-jetbrains resize-none border-2
