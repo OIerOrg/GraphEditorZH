@@ -466,11 +466,6 @@ export function GraphInput({
             className="bg-clear-normal hover:bg-clear-hover
               active:bg-clear-active inline rounded-md px-2 py-1"
             onClick={() => 
-              (
-                document.getElementById(
-                  "graphInputNodeLabels",
-                ) as HTMLTextAreaElement
-              ).value = "";
               if (inputFormat === "edges") {
                 (
                   document.getElementById(
