@@ -374,7 +374,8 @@ export function GraphInput({
           id="graphInputEdges"
           onChange={processGraphInput}
           onKeyDown={handleTextAreaKeyDown}
-          placeholder="提示：每行一条边    
+          placeholder="提示：
+每行一条边    
 格式为“起点 终点 边权(可选)”"
           rows={8}
           className={
